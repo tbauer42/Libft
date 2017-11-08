@@ -1,38 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tbauer <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/08 13:00:30 by tbauer            #+#    #+#             */
-/*   Updated: 2017/11/08 14:24:28 by tbauer           ###   ########.fr       */
+/*   Created: 2017/11/08 14:25:15 by tbauer            #+#    #+#             */
+/*   Updated: 2017/11/08 14:42:27 by tbauer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <string.h>
-#include <libft.h>
 
-void	*ft_memmove(void *dest, const void *src, size_t n)
+void	*ft_memchr(const void *s, int c, size_t n)
 {
-	char		*pdest;
-	const char	*psrc;
-	size_t		i;
+	unsigned char	*ps;
+	unsigned char	pc;
+	size_t			i;
 
-	pdest = dest;
-	psrc = src;
+	ps = (unsigned char*)s;
+	pc = c;
 	i = 0;
-	if ((int)pdest <= (int)psrc)
-		ft_memcpy(dest, src, n);
-	else
+	while (i < n)
 	{
-		psrc = psrc + n - 1;
-		pdest = pdest + n - 1;
-		while (i < n)
-		{
-			pdest[i] = psrc[i];
-			i--;
-		}
+		if (ps[i] == pc)
+			return (&ps[i]);
+		i++;
 	}
-	return (dest);
+	return (NULL);
 }

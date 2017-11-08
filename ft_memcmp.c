@@ -1,38 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tbauer <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/08 13:00:30 by tbauer            #+#    #+#             */
-/*   Updated: 2017/11/08 14:24:28 by tbauer           ###   ########.fr       */
+/*   Created: 2017/11/08 14:57:26 by tbauer            #+#    #+#             */
+/*   Updated: 2017/11/08 15:04:33 by tbauer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <string.h>
-#include <libft.h>
 
-void	*ft_memmove(void *dest, const void *src, size_t n)
+int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
-	char		*pdest;
-	const char	*psrc;
-	size_t		i;
+	const unsigned char	*p1;
+	const unsigned char	*p2;
+	size_t				i;
 
-	pdest = dest;
-	psrc = src;
+	p1 = s1;
+	p2 = s2;
 	i = 0;
-	if ((int)pdest <= (int)psrc)
-		ft_memcpy(dest, src, n);
-	else
+	while (i < n)
 	{
-		psrc = psrc + n - 1;
-		pdest = pdest + n - 1;
-		while (i < n)
-		{
-			pdest[i] = psrc[i];
-			i--;
-		}
+		if (p1[i] != p2[i])
+			return (p1[i] - p2[i]);
+		i++;
 	}
-	return (dest);
+	return (0);
 }
