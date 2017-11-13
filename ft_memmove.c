@@ -6,12 +6,12 @@
 /*   By: tbauer <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/08 13:00:30 by tbauer            #+#    #+#             */
-/*   Updated: 2017/11/08 14:24:28 by tbauer           ###   ########.fr       */
+/*   Updated: 2017/11/13 18:49:49 by tbauer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <string.h>
-#include <libft.h>
+#include "libft.h"
 
 void	*ft_memmove(void *dest, const void *src, size_t n)
 {
@@ -22,7 +22,7 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 	pdest = dest;
 	psrc = src;
 	i = 0;
-	if ((int)pdest <= (int)psrc)
+	if ((int)pdest >= (int)psrc)
 		ft_memcpy(dest, src, n);
 	else
 	{

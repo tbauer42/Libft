@@ -6,7 +6,7 @@
 /*   By: tbauer <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/08 10:49:52 by tbauer            #+#    #+#             */
-/*   Updated: 2017/11/13 15:01:52 by tbauer           ###   ########.fr       */
+/*   Updated: 2017/11/13 18:17:03 by tbauer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int		ft_strncmp(const char *s1, const char *s2, size_t n);
 int		ft_atoi(const char *nptr);
 void	ft_memdel(void **ap);
 char	*ft_strnew(size_t size);
-void	*ft_strdel(char **as);
+void	ft_strdel(char **as);
 void	ft_strclr(char *s);
 void	ft_striter(char *s, void (*f)(char *));
 void	ft_striteri(char *s, void (*f)(unsigned int, char *));
@@ -65,4 +65,5 @@ int		ft_isalnum(int c);
 int		ft_isascii(int c);
 int		ft_isprint(int c);
 int		ft_tolower(int c);
+char	*ft_strdup(const char *s);
 #endif

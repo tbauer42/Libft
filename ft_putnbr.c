@@ -1,26 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcmp.c                                        :+:      :+:    :+:   */
+/*   ft_putnbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tbauer <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/13 18:51:39 by tbauer            #+#    #+#             */
-/*   Updated: 2017/11/13 18:52:28 by tbauer           ###   ########.fr       */
+/*   Created: 2017/11/13 17:35:29 by tbauer            #+#    #+#             */
+/*   Updated: 2017/11/13 17:43:52 by tbauer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_strcmp(const char *s1, const char *s2)
+void	ft_putnbr(int nb)
 {
-	int i;
+	char	*chain;
+	int		i;
 
+	chain = "-2147483648";
 	i = 0;
-	while (*s1 && *s1==*s2)
+	if (nb == -2147483648)
 	{
-		s1++;
-		s2++;
+		while (i < 11)
+		{
+			ft_putchar(chain[i++]);
+		}
+		return ;
 	}
-	return ((unsigned int)*s1 - (unsigned int)*s2);
+	if (nb < 0)
+	{
+		nb *= -1;
+		ft_putchar('-');
+	}
+	if (nb > 10)
+	{
+		ft_putnbr(nb / 10);
+	}
+	ft_putchar((nb % 10) + 48);
 }

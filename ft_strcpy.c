@@ -1,6 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strcpy.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tbauer <marvin@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2017/11/13 17:56:16 by tbauer            #+#    #+#             */
+/*   Updated: 2017/11/13 17:56:41 by tbauer           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
-char	*strcpy(char *dest, const char *src)
+char	*ft_strcpy(char *dest, const char *src)
 {
 	int i;
 
@@ -11,4 +23,5 @@ char	*strcpy(char *dest, const char *src)
 		i++;
 	}
 	dest[i] = '\0';
+	return (dest);
 }
