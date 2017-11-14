@@ -32,7 +32,7 @@ void	ft_putnbr(int nb)
 		nb *= -1;
 		ft_putchar('-');
 	}
-	if (nb > 10)
+	if (nb >= 10)
 	{
 		ft_putnbr(nb / 10);
 	}
