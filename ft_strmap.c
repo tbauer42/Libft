@@ -19,7 +19,9 @@ char	*ft_strmap(char const *s, char (*f)(char))
 	char *str;
 
 	i = -1;
-	str = (char*)malloc(sizeof(s) * ft_strlen(s));
+	str = (char*)malloc(sizeof(*s) * ft_strlen(s));
+	if (str == NULL)
+		return (NULL);
 	while (s[++i])
 		str[i] = (*f)(s[i]);
 	return (str);
