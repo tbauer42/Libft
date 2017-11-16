@@ -6,7 +6,7 @@
 /*   By: tbauer <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/13 14:14:40 by tbauer            #+#    #+#             */
-/*   Updated: 2017/11/13 19:04:23 by tbauer           ###   ########.fr       */
+/*   Updated: 2017/11/16 18:03:44 by tbauer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,27 +15,27 @@
 
 char	*ft_strtrim(char const *s)
 {
-	char	*str;
-	size_t	i;
+	int		i;
 	int		len;
-	int		start;
-	int		end;
+	char	*str;
 
-	i = 0;
+	if (s == NULL)
+		return (NULL);
 	len = ft_strlen(s);
-	if ((s[i] != ' ' && s[i] != '\n' && s[i] != '\t') && (s[len] != ' ' &&
-				s[len] != '\n' && s[len] != '\t'))
-		return ((char*)s);
-	while (s[i] == ' ' || s[i] == '\n' || s[i] == '\t')
-		i++;
-	start = i;
-	i = 0;
-	while (s[len - 1] == ' ' || s[len - 1] == '\n' || s[len - 1] == '\t')
+	while (s[len - 1] == ' ' || s[len - 1] == '\t' || s[len - 1] == '\n')
 		len--;
-	end = len;
-	str = (char*)malloc(sizeof(*s) * (end - start));
+	i = -1;
+	while (s[++i] == ' ' || s[i] == '\t' || s[i] == '\n')
+		len--;
+	if (len <= 0)
+		len = 0;
+	str = ft_strnew(ft_strlen(s) + 1);
 	if (str == NULL)
 		return (NULL);
-	str = ft_strsub(s, start, (end - start));
+	s += i;
+	i = 0;
+	while (i < len)
+		str[i++] = *s++;
+	str[i] = '\0';
 	return (str);
 }

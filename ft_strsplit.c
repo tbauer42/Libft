@@ -6,14 +6,14 @@
 /*   By: tbauer <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/13 16:33:55 by tbauer            #+#    #+#             */
-/*   Updated: 2017/11/13 16:51:53 by tbauer           ###   ########.fr       */
+/*   Updated: 2017/11/16 18:35:46 by tbauer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdlib.h>
 
-int		ft_countword(char *str, char c)
+static int	ft_countword(char *str, char c)
 {
 	int i;
 	int cpt;
@@ -29,7 +29,7 @@ int		ft_countword(char *str, char c)
 	return (cpt);
 }
 
-int		size_word(int a, char *str, char c)
+static int	size_word(int a, char *str, char c)
 {
 	int i;
 	int cpt;
@@ -54,7 +54,7 @@ int		size_word(int a, char *str, char c)
 	return (0);
 }
 
-void	put_all(char **tab, char *str, int size_1, char c)
+static void	put_all(char **tab, char *str, int size_1, char c)
 {
 	int i;
 	int j;
@@ -80,7 +80,7 @@ void	put_all(char **tab, char *str, int size_1, char c)
 	tab[i] = 0;
 }
 
-char	**ft_strsplit(char const *s, char c)
+char		**ft_strsplit(char const *s, char c)
 {
 	char	**tab;
 	int		size_1;
@@ -88,6 +88,8 @@ char	**ft_strsplit(char const *s, char c)
 	int		i;
 	int		j;
 
+	if (s == NULL || !c)
+		return (NULL);
 	size_1 = ft_countword((char*)s, c);
 	i = 0;
 	size_2 = size_word((i + 1), (char*)s, c);
